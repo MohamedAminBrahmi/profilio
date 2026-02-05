@@ -266,104 +266,49 @@ function About() {
 
 // Skills Section
 function Skills() {
-  const skillCategories = [
-    {
-      name: "Data Analysis",
-      color: "from-sky-500 to-blue-500",
-      bgColor: "bg-sky-50",
-      borderColor: "border-sky-200",
-      skills: [
-        { name: "Python", level: 90, icon: "🐍" },
-        { name: "Pandas", level: 85, icon: "🐼" },
-        { name: "NumPy", level: 85, icon: "🔢" },
-        { name: "Seaborn", level: 80, icon: "📊" },
-      ]
-    },
-    {
-      name: "Visualization",
-      color: "from-cyan-500 to-teal-500",
-      bgColor: "bg-cyan-50",
-      borderColor: "border-cyan-200",
-      skills: [
-        { name: "Power BI", level: 90, icon: "📈" },
-        { name: "DAX", level: 80, icon: "📐" },
-        { name: "Excel", level: 85, icon: "📑" },
-        { name: "Matplotlib", level: 75, icon: "📉" },
-      ]
-    },
-    {
-      name: "Development",
-      color: "from-violet-500 to-purple-500",
-      bgColor: "bg-violet-50",
-      borderColor: "border-violet-200",
-      skills: [
-        { name: "Java", level: 75, icon: "☕" },
-        { name: "Spring Boot", level: 70, icon: "🍃" },
-        { name: "SQL", level: 85, icon: "🗄️" },
-        { name: "Web Scraping", level: 80, icon: "🕸️" },
-      ]
-    },
-    {
-      name: "Tools",
-      color: "from-amber-500 to-orange-500",
-      bgColor: "bg-amber-50",
-      borderColor: "border-amber-200",
-      skills: [
-        { name: "Jupyter", level: 90, icon: "📓" },
-        { name: "Git/GitHub", level: 80, icon: "🔀" },
-        { name: "VS Code", level: 85, icon: "💻" },
-        { name: "Anaconda", level: 80, icon: "🐍" },
-      ]
-    },
+  const skills = [
+    { name: "Python", icon: "🐍" },
+    { name: "Pandas", icon: "🐼" },
+    { name: "NumPy", icon: "🔢" },
+    { name: "Seaborn", icon: "📊" },
+    { name: "Power BI", icon: "📈" },
+    { name: "DAX", icon: "📐" },
+    { name: "Excel", icon: "📑" },
+    { name: "Matplotlib", icon: "📉" },
+    { name: "Java", icon: "☕" },
+    { name: "Spring Boot", icon: "🍃" },
+    { name: "SQL", icon: "🗄️" },
+    { name: "Web Scraping", icon: "🕸️" },
+    { name: "Jupyter", icon: "📓" },
+    { name: "Git/GitHub", icon: "🔀" },
+    { name: "VS Code", icon: "💻" },
+    { name: "Anaconda", icon: "🐍" },
   ];
 
   return (
-    <section id="skills" className="py-32 bg-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-sky-100 to-cyan-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-cyan-100 to-teal-100 rounded-full blur-3xl opacity-50 translate-y-1/2 -translate-x-1/2" />
-      
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+    <section id="skills" className="py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <span className="inline-block px-5 py-2.5 rounded-full bg-gradient-to-r from-sky-100 to-cyan-100 text-sky-700 text-sm font-bold uppercase tracking-widest mb-4 shadow-sm">Skills & Expertise</span>
-          <h2 className="text-5xl md:text-6xl font-bold mt-4 text-slate-900">
-            Technical <span className="text-shimmer">Arsenal</span>
+        <div className="text-center mb-16">
+          <p className="text-sky-600 font-medium text-sm uppercase tracking-wider mb-3">Skills & Expertise</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+            Technical <span className="gradient-text-static">Skills</span>
           </h2>
-          <p className="max-w-3xl mx-auto text-slate-600 mt-6 text-lg">
+          <p className="max-w-2xl mx-auto text-slate-500 mt-4 text-base">
             A comprehensive toolkit for end-to-end data analysis and visualization
           </p>
         </div>
 
-        {/* Skills by Category */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, catIndex) => (
-            <div key={catIndex} className={`p-8 rounded-3xl ${category.bgColor} border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300`}>
-              <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                <span className={`w-3 h-3 rounded-full bg-gradient-to-r ${category.color}`} />
-                {category.name}
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl">{skill.icon}</span>
-                      <span className="font-bold text-slate-800">{skill.name}</span>
-                    </div>
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-xs">
-                        <span className="text-slate-500">Proficiency</span>
-                        <span className={`font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>{skill.level}%</span>
-                      </div>
-                      <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full bg-gradient-to-r ${category.color} rounded-full transition-all duration-700`}
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
+        {/* Skills Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="group p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-2xl group-hover:scale-110 transition-transform duration-200">{skill.icon}</span>
+                <span className="font-medium text-slate-700 text-sm">{skill.name}</span>
               </div>
             </div>
           ))}
@@ -378,12 +323,10 @@ function Projects() {
   const projects = [
     {
       title: "Mytek E-commerce Analysis",
-      description: "End-to-end project scraping Mytek product pages, cleaning datasets, and delivering Power BI reports with KPIs and insights. Summer internship project.",
+      description: "End-to-end project scraping Mytek product pages, cleaning datasets, and delivering Power BI reports with KPIs and insights.",
       tags: ["Python", "Web Scraping", "Power BI"],
       category: "Internship",
       link: "https://github.com/MohamedAminBrahmi/Summer_Intern_Mytek_Analysis",
-      featured: true,
-      gradient: "from-orange-500 to-pink-500",
     },
     {
       title: "Healthcare Data Insights 2019-2024",
@@ -391,8 +334,6 @@ function Projects() {
       tags: ["Power BI", "Data Analysis"],
       category: "Power BI",
       link: "https://github.com/MohamedAminBrahmi/Healthcare-data-insight-2019-2024",
-      featured: true,
-      gradient: "from-sky-500 to-cyan-500",
     },
     {
       title: "Data Professional Survey Breakdown",
@@ -400,8 +341,6 @@ function Projects() {
       tags: ["Power BI", "Visualization"],
       category: "Power BI",
       link: "https://github.com/MohamedAminBrahmi/Data-Professional-Survey-Breakdown",
-      featured: true,
-      gradient: "from-violet-500 to-purple-500",
     },
     {
       title: "Netflix Data Analysis",
@@ -409,8 +348,6 @@ function Projects() {
       tags: ["Python", "Pandas", "EDA"],
       category: "Python",
       link: "https://github.com/MohamedAminBrahmi/Netflix-DA",
-      featured: false,
-      gradient: "from-red-500 to-rose-500",
     },
     {
       title: "COVID-19 Infections Analysis",
@@ -418,8 +355,6 @@ function Projects() {
       tags: ["Python", "Data Viz"],
       category: "Python",
       link: "https://github.com/MohamedAminBrahmi/Covid-DA-",
-      featured: false,
-      gradient: "from-emerald-500 to-teal-500",
     },
     {
       title: "GDS API Integration",
@@ -427,102 +362,82 @@ function Projects() {
       tags: ["Java", "Spring Boot", "API"],
       category: "Development",
       link: "https://github.com/MohamedAminBrahmi/Exrenal-Api-end-of-study-project",
-      featured: false,
-      gradient: "from-amber-500 to-yellow-500",
     },
   ];
 
   return (
-    <section id="projects" className="py-32 bg-gradient-to-b from-slate-50 to-white relative">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#0ea5e908_0%,transparent_50%)]" />
-      
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+    <section id="projects" className="py-24 bg-slate-50">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <span className="inline-block px-5 py-2.5 rounded-full bg-gradient-to-r from-sky-100 to-cyan-100 text-sky-700 text-sm font-bold uppercase tracking-widest mb-4 shadow-sm">Portfolio</span>
-          <h2 className="text-5xl md:text-6xl font-bold mt-4 text-slate-900">
-            Featured <span className="text-shimmer">Projects</span>
+        <div className="text-center mb-16">
+          <p className="text-sky-600 font-medium text-sm uppercase tracking-wider mb-3">Portfolio</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+            Featured <span className="gradient-text-static">Projects</span>
           </h2>
-          <p className="max-w-3xl mx-auto text-slate-600 mt-6 text-lg">
+          <p className="max-w-2xl mx-auto text-slate-500 mt-4 text-base">
             A collection of data analysis and visualization projects showcasing my expertise
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <a
               key={index}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-3xl bg-white border-2 border-slate-100 hover:border-transparent hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 overflow-hidden"
+              className="group block p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-200"
             >
-              {/* Top Gradient Bar */}
-              <div className={`h-2 bg-gradient-to-r ${project.gradient}`} />
-              
-              <div className="p-8">
-                {/* Category Badge */}
-                <div className="flex items-center justify-between mb-5">
-                  <span className={`px-4 py-2 text-xs font-bold rounded-full bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
-                    {project.category}
+              {/* Category */}
+              <span className="inline-block px-3 py-1 text-xs font-medium text-sky-600 bg-sky-50 rounded-full mb-4">
+                {project.category}
+              </span>
+
+              {/* Title */}
+              <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">
+                {project.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                {project.description}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag, tagIndex) => (
+                  <span
+                    key={tagIndex}
+                    className="px-2.5 py-1 text-xs text-slate-500 bg-slate-100 rounded-md"
+                  >
+                    {tag}
                   </span>
-                  {project.featured && (
-                    <span className="text-xs text-amber-500 font-bold flex items-center gap-1 bg-amber-50 px-3 py-1.5 rounded-full">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                      Featured
-                    </span>
-                  )}
-                </div>
+                ))}
+              </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-sky-600 transition-colors">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-slate-600 leading-relaxed mb-5">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1.5 text-xs font-medium text-slate-600 bg-slate-100 rounded-lg border border-slate-200 group-hover:bg-sky-50 group-hover:text-sky-700 group-hover:border-sky-200 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Link */}
-                <div className="flex items-center gap-2 text-sm text-sky-600 font-bold group-hover:gap-3 transition-all">
-                  View on GitHub
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
+              {/* Link */}
+              <div className="flex items-center gap-2 text-sm text-sky-600 font-medium">
+                View Project
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </div>
             </a>
           ))}
         </div>
 
-        {/* View More */}
-        <div className="text-center mt-16">
+        {/* View All Button */}
+        <div className="text-center mt-12">
           <a
             href="https://github.com/MohamedAminBrahmi?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-10 py-4 rounded-xl border-2 border-slate-300 bg-white text-slate-700 font-bold hover:bg-slate-50 hover:border-sky-500 hover:text-sky-600 transition-all shadow-lg"
+            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors"
           >
-            View All Repositories
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            View all repositories
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
         </div>
@@ -544,107 +459,105 @@ function Contact() {
     console.log("Form submitted:", formState);
   };
 
-  const contactLinks = [
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-        </svg>
-      ),
-      label: "LinkedIn",
-      value: "med-amin-brahmi",
-      href: "https://www.linkedin.com/in/med-amin-brahmi-950252276/",
-      gradient: "from-blue-500 to-blue-600",
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-        </svg>
-      ),
-      label: "GitHub",
-      value: "MohamedAminBrahmi",
-      href: "https://github.com/MohamedAminBrahmi",
-      gradient: "from-slate-700 to-slate-900",
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      label: "Email",
-      value: "brahmimedamin7@gmail.com",
-      href: "mailto:brahmimedamin7@gmail.com",
-      gradient: "from-sky-500 to-cyan-500",
-    },
-  ];
-
   return (
-    <section id="contact" className="py-32 bg-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-sky-50 to-transparent rounded-full blur-3xl opacity-50" />
-      
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+    <section id="contact" className="py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <span className="inline-block px-5 py-2.5 rounded-full bg-gradient-to-r from-sky-100 to-cyan-100 text-sky-700 text-sm font-bold uppercase tracking-widest mb-4 shadow-sm">Get In Touch</span>
-          <h2 className="text-5xl md:text-6xl font-bold mt-4 text-slate-900">
-            Let&apos;s <span className="text-shimmer">Connect</span>
+        <div className="text-center mb-16">
+          <p className="text-sky-600 font-medium text-sm uppercase tracking-wider mb-3">Get In Touch</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+            Let&apos;s <span className="gradient-text-static">Connect</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-slate-600 mt-6 text-lg">
+          <p className="max-w-2xl mx-auto text-slate-500 mt-4 text-base">
             Interested in collaborating or have a project in mind? I&apos;d love to hear from you.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Links */}
-          <div className="space-y-5">
-            <h3 className="text-2xl font-bold text-slate-900 mb-8">Connect with me</h3>
-            {contactLinks.map((link, index) => (
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left - Contact Info */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-6">Contact Information</h3>
+              <p className="text-slate-500 text-base leading-relaxed">
+                Feel free to reach out through any of these channels. I typically respond within 24 hours.
+              </p>
+            </div>
+
+            {/* Contact Links */}
+            <div className="space-y-4">
               <a
-                key={index}
-                href={link.href}
+                href="mailto:brahmimedamin7@gmail.com"
+                className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400 uppercase tracking-wide">Email</p>
+                  <p className="text-slate-700 font-medium">brahmimedamin7@gmail.com</p>
+                </div>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/med-amin-brahmi-950252276/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-5 p-6 rounded-2xl bg-white border-2 border-slate-100 hover:border-sky-200 hover:shadow-xl hover:shadow-sky-100/50 transition-all duration-300"
+                className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors"
               >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${link.gradient} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                  {link.icon}
+                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
                 </div>
-                <div className="flex-grow">
-                  <div className="text-xs text-slate-500 uppercase tracking-wider font-bold">{link.label}</div>
-                  <div className="text-slate-900 text-lg font-semibold group-hover:text-sky-600 transition-colors">{link.value}</div>
+                <div>
+                  <p className="text-xs text-slate-400 uppercase tracking-wide">LinkedIn</p>
+                  <p className="text-slate-700 font-medium">med-amin-brahmi</p>
                 </div>
-                <svg className="w-6 h-6 text-slate-300 group-hover:text-sky-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                </svg>
               </a>
-            ))}
 
-            {/* Location */}
-            <div className="flex items-center gap-4 p-6 mt-4 bg-gradient-to-r from-sky-50 to-cyan-50 rounded-2xl border-2 border-sky-100">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-md">
-                <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div>
-                <div className="text-xs text-slate-500 uppercase tracking-wider font-bold">Location</div>
-                <div className="text-slate-800 font-semibold">Ariana, Tunisia</div>
+              <a
+                href="https://github.com/MohamedAminBrahmi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-slate-200 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-slate-700" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400 uppercase tracking-wide">GitHub</p>
+                  <p className="text-slate-700 font-medium">MohamedAminBrahmi</p>
+                </div>
+              </a>
+
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50">
+                <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400 uppercase tracking-wide">Location</p>
+                  <p className="text-slate-700 font-medium">Ariana, Tunisia</p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="p-10 rounded-2xl bg-white border-2 border-slate-200 shadow-xl">
-            <div className="space-y-7">
+          {/* Right - Contact Form */}
+          <form onSubmit={handleSubmit} className="p-8 rounded-xl bg-white border border-slate-200 shadow-sm">
+            <h3 className="text-xl font-semibold text-slate-900 mb-6">Send a Message</h3>
+            <div className="space-y-5">
               <div>
-                <label className="block text-sm text-slate-700 mb-3 font-bold">Name</label>
+                <label className="block text-sm text-slate-600 mb-2 font-medium">Name</label>
                 <input
                   type="text"
-                  className="w-full px-5 py-4 rounded-xl bg-slate-50 border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white transition-all text-lg"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all text-base"
                   placeholder="Your name"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -652,10 +565,10 @@ function Contact() {
                 />
               </div>
               <div>
-                <label className="block text-sm text-slate-700 mb-3 font-bold">Email</label>
+                <label className="block text-sm text-slate-600 mb-2 font-medium">Email</label>
                 <input
                   type="email"
-                  className="w-full px-5 py-4 rounded-xl bg-slate-50 border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white transition-all text-lg"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all text-base"
                   placeholder="your@email.com"
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -663,9 +576,9 @@ function Contact() {
                 />
               </div>
               <div>
-                <label className="block text-sm text-slate-700 mb-3 font-bold">Message</label>
+                <label className="block text-sm text-slate-600 mb-2 font-medium">Message</label>
                 <textarea
-                  className="w-full px-5 py-4 rounded-xl bg-slate-50 border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white transition-all min-h-[160px] resize-none text-lg"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all min-h-[120px] resize-none text-base"
                   placeholder="Your message..."
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -674,11 +587,11 @@ function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full py-5 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 text-white font-bold text-lg shadow-xl shadow-sky-500/30 hover:shadow-2xl hover:shadow-sky-500/40 hover:scale-[1.02] transition-all flex items-center justify-center gap-3"
+                className="w-full py-3 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-medium text-base transition-colors flex items-center justify-center gap-2"
               >
                 Send Message
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </button>
             </div>
