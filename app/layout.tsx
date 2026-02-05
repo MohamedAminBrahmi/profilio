@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,16 +9,16 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Alex Morgan | Business Intelligence Engineer",
+  title: "Mohamed Amin Brahmi | Business Intelligence Engineer",
   description: "Transforming complex data into actionable insights. Business Intelligence Engineer specializing in data visualization, analytics, and strategic decision-making.",
-  keywords: ["Business Intelligence", "Data Analytics", "Data Visualization", "BI Engineer", "Dashboard", "Power BI", "Tableau"],
+  keywords: ["Business Intelligence", "Data Analytics", "Data Visualization", "BI Engineer", "Power BI", "Python", "Data Analysis"],
 };
 
 export default function RootLayout({
@@ -27,11 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
-      >
+      <body className={`${inter.variable} ${sora.variable} antialiased`}>
         {children}
-        <div className="noise-overlay" />
       </body>
     </html>
   );
